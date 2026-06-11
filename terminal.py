@@ -18,7 +18,7 @@ class terminal:
     # Clears Screen
     def clear_screen(self):
 
-        os.system("cls")
+        os.system("cls" if os.name == "nt" else "clear")
 
     # Centers if needed, then prints
     def print(self, text, center_horizontally=True, center_vertically=False, **args):
