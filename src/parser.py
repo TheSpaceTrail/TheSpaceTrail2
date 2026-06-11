@@ -6,8 +6,8 @@ from typing import Optional, Any
 import rich
 import rich.prompt
 
-import shop
-import terminal
+from . import shop_archive
+from . import terminal
 
 
 
@@ -15,7 +15,7 @@ import terminal
 
 
 storyline = json.load(
-    open("./storyline.json", "r", encoding="utf-8")
+    open("./src/storyline.json", "r", encoding="utf-8")
 )
 
 database = {}

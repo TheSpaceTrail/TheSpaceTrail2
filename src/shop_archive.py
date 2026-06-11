@@ -4,7 +4,7 @@ import rich.text
 import rich.live
 
 # Internal Libraries
-import terminal
+from . import terminal
 
 # Item object
 class Item:
