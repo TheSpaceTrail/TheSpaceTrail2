@@ -484,7 +484,7 @@ def roulette(screen, font, inp, player):
     
     wheel_colors = ["Red", "Black"] * 7 + ["Green"]
 
-    wheel = pygame.image.load("roulette_wheel.jpg").convert_alpha()
+    wheel = pygame.image.load("../assets/roulette_wheel.jpg").convert_alpha()
     wheel = pygame.transform.smoothscale(wheel, (450, 450))
 
     colors = ["Red", "Black", "Green"]
@@ -735,7 +735,7 @@ def hunting(screen, font, inp, player):
     
     # FOLIAGE
     
-    foliage_img = pygame.image.load("foliage.png").convert_alpha()
+    foliage_img = pygame.image.load("../assets/foliage.png").convert_alpha()
     foliage = []
 
     for _ in range(25):
@@ -1000,7 +1000,7 @@ def run():
     SLOW_RE = re.compile(r"^!slow\s+(\d+)\s+(.*)$")
 
     # Load title image
-    title_image = pygame.image.load("TheSpaceTrail.png").convert_alpha()
+    title_image = pygame.image.load("../assets/TheSpaceTrail.png").convert_alpha()
     title_image = pygame.transform.scale_by(title_image, (0.7, 0.7))
 
     title_surface = font.render("PRESS ANY KEY TO BEGIN", True, (255, 255, 255))
