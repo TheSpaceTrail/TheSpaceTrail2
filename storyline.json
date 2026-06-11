@@ -1,0 +1,645 @@
+{
+    "intro": [
+
+        "# Intro is the begining sequence, starting the intro starts the game",
+        "# You just lost *the game* btw",
+        "!modify credits + 1000",
+
+        "!hunting",
+        "!roulette",
+
+        "!slow 1 Year: 0",
+        "Harpagon the great makes the universe.",
+        "Implementing physics, chemistry, and adding a few... author's notes... for people to stumble opon.",
+        "!slow 1 ..................................................................................................",
+
+        "!slow 2 BEEEEEEP *spark* PASSPORT TERMINAL L-LOADING",
+
+        "!modify food + 0",
+        "!modify parts + 0",
+        "!modify arms + 0",
+
+        "?\nDo you wish to be from [dark_cyan]New Floridia[/dark_cyan], [orange_red1]Kazakhstan[/orange_red1] or [cyan2]Latveria[/cyan2]?",
+        [
+            "kazakhstan",
+            "new floridia",
+            "latveria"
+        ],
+
+        "!store country $choice",
+
+        "!jump_switch country",
+        {
+            "kazakhstan": "kazakhstan_intro",
+            "new floridia": "floridia_intro",
+            "latveria": "latveria_intro"
+        }
+    ],
+
+    "kazakhstan_intro": [
+
+        "DISTANCE TO SATURN: 1.56 * 10^9 km",
+
+        "The dark, beautiful crimson of Kazakhstani sky, once called New Romania, lights up the windows of the store.",
+        "A thriving civilization, Kazakhstan is the world's largest producer of neotatos, a genetically modified, hyper-resistant viral strain of, now extinct, primitive potatoes.",
+        "[green]Food is 25% cheaper for you![/green]",
+
+        "!jump kazakhstan_store_earth"
+
+    ],
+
+    "floridia_intro": [
+
+        "DISTANCE TO SATURN: 1.493 * 10^9 km",
+
+        "You look up as the dank, musky humidity of the New Floridian air hits your lungs.",
+        "Hailing from Yung Jacksonvile (once called old then new, now Yung) you, having festered for decades in swamps, are a resiliant and formidable opponent.",
+        "[green]You get arms 25% cheaper![/green]",
+
+        "!jump floridia_store_earth"
+        
+    ],
+
+    "latveria_intro": [
+
+        "DISTANCE TO SATURN: 1.681* 10^9 km",
+
+        "The unforgetable sting of the cold Latverian tundra hits your sinuses as you look at the blindingly white horizon.",
+        "As a scientist from the world's technological capital, you have access to the newest and most efficient transport.",
+        "[green]Spare parts are 25% cheaper![/green]",
+        
+        "!jump latveria_store_earth"
+    ],    
+
+    "kazakhstan_store_earth": [
+        
+        "!shop",
+        {
+            "title": "Kazakhstan's best Wares",
+
+            "store_keeper_name": "Skib McBib",
+            "store_keeper_msg": "Welcome farmer! I'll give you a discount on food!",
+
+            "items": [
+                {
+                    "name": "Space Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "LUXE Space Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "100",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Replacement Part Kit", 
+                    "emoji": "🛞🪛",
+                    "price": "200",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Jebediah's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "100",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump earth_moon_junction"
+
+    ],
+
+    "floridia_store_earth": [
+            
+        "!shop",
+        {
+            "title": "Gator's General Store",
+
+            "store_keeper_name": "Gill Gator",
+            "store_keeper_msg": "Ey there Par'ner! I will give you a discount on arms!",
+
+            "items": [
+                {
+                    "name": "Gator Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Premium Gator Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "100",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Gecko Insurance Cheap Premium Parts", 
+                    "emoji": "🛞🪛",
+                    "price": "200",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Armalite's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "75",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump earth_moon_junction"
+
+    ],
+
+    "latveria_store_earth": [
+            
+        "!shop",
+        {
+            "title": "Latverian Good's",
+
+            "store_keeper_name": "John Jon Jhon Ion Lohn Long John",
+            "store_keeper_msg": "Welcome Fellow Latverians! I'll give you a discount on parts!",
+
+            "items": [
+                {
+                    "name": "Space Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "25",
+                    "id": "food"
+                },
+
+                {
+                    "name": "LUXE Space Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "High Quality Latvian Bolts and Nuts", 
+                    "emoji": "🛞🪛",
+                    "price": "150",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Jebediah's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "100",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump earth_moon_junction"
+
+    ],
+
+    "kazakhstan_store_moon": [
+        
+        "!shop",
+        {
+            "title": "Kazakhstan's best Wares",
+
+            "store_keeper_name": "Skib McBib's Moon Cousin",
+            "store_keeper_msg": "Welcome farmer! I'll give you a discount on food!",
+
+            "items": [
+                {
+                    "name": "Space Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "LUXE Space Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "100",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Replacement Part Kit", 
+                    "emoji": "🛞🪛",
+                    "price": "200",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Jebediah's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "100",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump phobos_deimos_pirates"
+
+    ],
+
+    "floridia_store_moon": [
+            
+        "!shop",
+        {
+            "title": "Gator's General Store",
+
+            "store_keeper_name": "Gill Gator's Moon Cousin",
+            "store_keeper_msg": "Ey there Par'ner! I will give you a discount on arms!",
+
+            "items": [
+                {
+                    "name": "Gator Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Premium Gator Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "100",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Gecko Insurance Cheap Premium Parts", 
+                    "emoji": "🛞🪛",
+                    "price": "200",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Armalite's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "75",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump phobos_deimos_pirates"
+
+    ],
+
+    "latveria_store_moon": [
+            
+        "!shop",
+        {
+            "title": "Latverian Good's",
+
+            "store_keeper_name": "John Jon Jhon Ion Lohn Long John's Moon Cousin",
+            "store_keeper_msg": "Welcome Fellow Latverians! I'll give you a discount on parts!",
+
+            "items": [
+                {
+                    "name": "Space Meat", 
+                    "emoji": "🍖🌠",
+                    "price": "25",
+                    "id": "food"
+                },
+
+                {
+                    "name": "LUXE Space Meat", 
+                    "emoji": "🍖🪙",
+                    "price": "50",
+                    "id": "food"
+                },
+
+                {
+                    "name": "High Quality Latvian Bolts and Nuts", 
+                    "emoji": "🛞🪛",
+                    "price": "150",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Jebediah's Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "100",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump phobos_deimos_pirates"
+
+    ],
+
+    "earth_moon_junction": [
+
+        "You start your journey to the [bold]moon[/bold]!",
+
+        "!random_hop engine_failure space_crate friendly_fiend"
+
+    ],
+
+    "engine_failure": [
+        
+        "Unfortunately, freezing cold temperatures zapped your engine, causing a critical failure in your transport.",
+        
+        "!if parts >= 1",
+        [
+            "You do not have enough parts to repair the ship, this is the end of your journey.",
+            "!end"
+        ],
+        [
+            "Unfortunately, you had to spend [bold]X1 SPARE PART[/bold] but you are back on track to the moon!",
+            "!jump moon"
+        ]
+
+    ],
+
+
+    "space_crate": [
+
+        "You find a [yellow]space crate[/yellow]!",
+        "Lucky you, you get [bold]1x SPARE PARTS[/bold], [bold]5x FOOD[/bold], [bold][cyan1]2500S¥[/cyan1][/bold], and [bold]1x ARMS[/bold]!",
+
+        "!modify parts + 1",
+        "!modify food + 5",
+        "!modify arms + 1",
+
+        "!modify credits + 2500",
+
+        "!jump moon"
+
+    ],
+
+    "friendly_fiend": [
+
+        "!slow 6 Brr.. Brrr... your comms ring... brrr... brrr...",
+        "[red]Code 418[/red]. DISTRESS ASSISTANCE NEEDED",
+        "You fly over and find two people asking for help, they need [bold]3X FOOD[/bold].",
+
+        "?Do you help them?",
+        {
+            "yes": "friendly_fiend_yes",
+            "no": "friendly_fiend_no"
+        }
+
+    ],
+
+    "friendly_fiend_yes": [
+
+        "Distressed space man: Thank you so much! Have this, it is the least I could do.",
+        "RECIVED [bold]2X SPARE PARTS[/bold] and [bold][cyan1]1000S¥[/cyan1][/bold].",
+
+        "!modify credits + 1000",
+
+        "!jump moon"
+
+    ],
+
+    "friendly_fiend_no": [
+
+        "The distressed space man's face grows red with anger as he pulls his arm from his jacket and destroys your ship.",
+        
+        "!if parts >= 2",
+        [
+            "You do not have enough parts to repair your ship so you are left stranded on an asteroid. You may not make it back to Earth.",
+            "!end"
+        ],
+        [
+            "You narrowly escape the distressed space man's attacks, but you have to use [bold]2X SPARE PARTS[/bold] to repair your ship.",
+            "!modify parts - 2"
+        ],
+
+        "!jump moon"
+
+    ],
+
+    "moon": [
+
+        "You made it to the moon!",
+        "You jump around for a little bit before heading to the shops for supplies.",
+
+        "!jump_switch country",
+        {
+            "kazakhstan": "kazakhstan_store_moon",
+            "new floridia": "floridia_store_moon",
+            "latveria": "latveria_store_moon"
+        }
+    ],
+
+    "phobos_deimos_pirates": [
+
+        "On your travel, you encounter the infamous Phobos Deimos Pirates, unsurprisingly named after the activities they regularly perform.",
+        "Through the comms, you hear violent rambles about how it would [be in your best interest to drop off all your items]. How cliché. Now, how will you proceed?",
+        "!if arms >= 14",
+        [
+            "You successfully defeat them, gaining [bold]2X SPARE PARTS, 2X FOOD[/bold], [bold][cyan1]5000S¥[/cyan1][/bold] in exchange of using up [bold]5X ARMS[/bold]",
+            "After your encounter with these hooligans, you continue your journey to Mars, successfully evading any more danger as you land in Mars.",
+            "!modify parts + 2",
+            "!modify food + 2",
+            "!modify credits + 5000",
+
+            "!jump mars"
+        ],
+        [
+            "You barely avoid death, though your spaceship was unfortunately damaged in the process of it. You use up [bold][red]3X SPARE PARTS[/red][/bold]to repair the ship.",
+            "!modify parts - 3",
+            "!jump mars"
+        ]
+
+    ],
+
+    "mars": [
+
+        "[bold][red3]Mars[/red3][/bold], the beatiful red planet.",
+        "It used to be beautiful after a few teraforming operations in the '50s but now it is just littered with rovers.",
+        "Some are still collecting data to this day.",
+
+        "!jump mars_europa_junction"
+
+    ],
+
+    "mars_europa_junction": [
+        
+        "!random_hop friendly_ships collision food_shortage"
+        
+    ],
+
+    "friendly_ships": [
+
+        "As you cross the asteroid belt you come accross some friendly ships.",
+        "The leaders of the ships offer free supplies to help you on your journey.",
+
+        "?Do you accept their offers or rob them of all they have?",
+        {
+            "accept": "friendly_ships_accept",
+            "rob": "friendly_ships_rob"
+        }
+
+    ],
+
+    "friendly_ships_accept": [
+
+        "You recive [bold]3X FOOD[/bold], [bold]3X SPARE PARTS[/bold] and [bold]1X ARMS[/bold].",
+    
+        "!modify arms + 1",
+        "!modify food + 3",
+        "!modify parts + 3",
+
+        "!jump europa"
+
+    ],
+
+    "friendly_ships_rob": [
+
+        "You betray the trust of your fellow travellers and recive [bold]3X FOOD[/bold], [bold]3X SPARE PARTS[/bold] and [bold]1X ARMS[/bold].",
+        "You, being the master criminal you are, also steal [bold][cyan1]5S¥[/cyan1][/bold].",
+    
+        "!modify arms + 1",
+        "!modify food + 3",
+        "!modify parts + 3",
+        "!modify credits + 1",
+
+        "!jump europa"
+
+    ],
+
+    "collision": [
+
+        "While carefully maneuvering the asteroid cloud, avoiding wasting too many Parsecs moving around, you hit an asteroid.",
+
+        "!if parts >= 5",
+        [
+            "You do not have enough spare parts to repair your ship. This is the end of your journey.",
+            "!end"
+        ],
+
+        [
+            "You have enough spare parts to repair the damage and fix your ship!",
+            "!modify parts - 5",
+            "!jump europa"
+
+        ]
+
+    ],
+
+    "food_shortage": [
+        "You prioritized the lives of your crewmates and minimizing hull damage too much! Food is being wasted the longer you travel.",
+
+        "!if food >= 5",
+        [
+            "You run out of food. The end.",
+            "!end"
+        ],
+
+        [
+            "You have enough to go on the last leg of your jouney!",
+            "!modify food - 5",
+            "!jump europa"
+
+        ]
+    ],
+
+    "europa": [
+
+        "DISTANCE TO SATURN: 9.6 * 10^8 km",
+
+        "Due to the weather being a little too intense in the only hot spot on Jupiter, the Great Red Spot, you instead maneuver your way to one of its moons, Europa.",
+        "Though an extremely icy moon, it holsters a great population of scientists performing research on extraterrestrial life. Out of these scientists, one presents themselves before you.",
+        "Hello there, the name is Bill Nye! Some people refer to me as THE Science Guy, though that was ages ago. As I assume, you folks are making your way to Saturn, are you now? I have always had a keen interest in its rings, as they certainly are way more observable than Jupiter's! If you want to, I will provide you with my special arm and goods, obviously at a price!",
+        "Enjoy this gift of 5X Arms!",
+        "!modify arms + 5",
+        "!jump bill_nye_store_europa"
+    ],
+
+    "bill_nye_store_europa": [
+                
+        "!shop",
+        {
+            "title": "Science Guy's Speciality Space Shop",
+
+            "store_keeper_name": "Bill Nye",
+            "store_keeper_msg": "Did you know that underneath the icy surface of Europa, lies a salty liquid ocean?",
+
+            "items": [
+                {
+                    "name": "Europa-en Fish", 
+                    "emoji": "🍖🌠",
+                    "price": "75",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Premium Europa-en Fish", 
+                    "emoji": "🍖🪙",
+                    "price": "150",
+                    "id": "food"
+                },
+
+                {
+                    "name": "Gas Giant Starship Repair Kit", 
+                    "emoji": "🛞🪛",
+                    "price": "250",
+                    "id": "parts"
+                },
+
+                {
+                    "name": "Galilean Steel Arms",
+                    "emoji": "⚔️⚜️",
+                    "price": "150",
+                    "id": "arms"
+                }
+            ]
+
+        },
+
+        "!jump europa_post_shop"
+
+    ],
+
+    "europa_post_shop" : [
+
+        "Last stretch of the journey!",
+        "DISTANCE TO SATURN: 6.46 * 10^8 km",
+        "!jump saturn_war"
+
+    ],
+
+    "saturn_war": [
+
+        "Incredibly close to Saturn, you encounter a major army of competitor ships, all aiming to be the first to land on Saturn. Desperate for this once in a lifetime opportunity, you are left with no choice but to...",
+        "[bold][red]...BATTLE!!![/red][/bold]",
+        "!if arms >= 10",
+        [
+            "You lose the battle, watching those filthy enemies reach your only life goal, as you slowly lose sight of it as you die of blood loss.",
+            "[bold][red] DISTANCE TO SATURN: INFINITY km[/red][/bold]",
+            "[bold][red]YOU LOSE![/red][/bold]",
+            "!end"
+        ],
+        [
+            "You successfully survive this all-out war, achieving the feat of being the first human to land on Saturn.",
+            "[bold][green]DISTANCE TO SATURN: 0 * 10^0 km[/green][/bold]",
+            "!jump saturn"
+        ]
+
+    ],
+
+    "saturn": [
+        "Congratulations!",
+        "You successfully made it to Saturn!",
+
+        "[bold][green]YOU WIN![/green][/bold]",
+        "!end"
+    ]
+    
+}
