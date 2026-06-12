@@ -209,6 +209,9 @@ def prompt(screen, font, inp, question, choices, buf, database, player, bar, pro
     q_segments = parse_formatted(question)
     selected = 0
 
+    if buf == None:
+        buf = Buffer()
+
     while True:
 
         inp.update(screen, font, inp, database, player, bar, prompt)
@@ -313,7 +316,7 @@ def run():
     inp = Input()
     buf = Buffer()
 
-    state = "intro"
+    state = parser.database["state"]
 
     SLOW_RE = re.compile(r"^!slow\s+(\d+)\s+(.*)$")
 
@@ -346,9 +349,10 @@ def run():
                 waiting_for_key = False
 
     while True:
-
-        gen = parser.run_sequence(parser.storyline[state])
-        send = None
+        
+        sequence = parser.storyline[parser.database["state"]]
+        gen = parser.run_sequence(sequence) 
+        send = None        
 
         try:
             while True:
@@ -427,13 +431,14 @@ def run():
                         pygame.display.flip()
 
                 elif isinstance(ev, parser.Prompt):
-                    send = prompt(screen, font, inp, ev.question, ev.choices, buf)
+                    send = prompt(screen, font, inp, ev.question, ev.choices, buf, parser.database, parser.player, bar, prompt)
 
                 elif isinstance(ev, parser.Shop):
-                    shop(screen, font, inp, ev.shop_data, parser.player, bar)
+                    shop(screen, font, inp, ev.shop_data, parser.database, parser.player, bar, None)
 
                 elif isinstance(ev, parser.Jump):
                     state = ev.target
+                    parser.database["state"] = state
                     break
 
                 elif isinstance(ev, parser.End):

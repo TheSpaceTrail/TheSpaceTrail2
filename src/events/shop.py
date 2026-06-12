@@ -39,7 +39,7 @@ class ShopState:
         self.buffer = ""
 
 
-def shop(screen, font, inp, data, player, bar):
+def shop(screen, font, inp, data, database, player, bar, prompt):
 
     items = data["items"]
 

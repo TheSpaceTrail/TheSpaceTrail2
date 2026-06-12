@@ -18,7 +18,9 @@ storyline = json.load(
     open("./src/storyline.json", "r", encoding="utf-8")
 )
 
-database = {}
+database = {
+    "state": "intro"
+}
 
 player = {
     "credits": 0,
@@ -98,9 +100,17 @@ def run_sequence(sequence):
     global database
     global player
 
-    idx = 0
+    print(sequence)
+
+    print(database)
+    print(player)
+
+
+    idx = 0 
 
     while idx < len(sequence):
+
+        g_idx = idx
 
         entry = sequence[idx]
 
