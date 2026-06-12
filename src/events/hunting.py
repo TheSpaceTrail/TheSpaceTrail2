@@ -8,7 +8,6 @@ def hunting(screen, font, inp, player):
     TEXT = (220, 220, 220)
 
     clock = pygame.time.Clock()
-
     
     # PLAYER
     

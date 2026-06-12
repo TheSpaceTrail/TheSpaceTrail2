@@ -71,6 +71,10 @@ class Roulette(Event):
 class Hunting(Event):
     pass
 
+@dataclass
+class Asteroid(Event):
+    pass
+
 
 def check_variable(test):
 
@@ -135,6 +139,8 @@ def run_sequence(sequence):
             if command == "!hunting":
                 yield Hunting()
 
+            if command == "!asteroid":
+                yield Asteroid()
             
             # End
             

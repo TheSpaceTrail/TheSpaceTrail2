@@ -2,6 +2,7 @@ import pygame
 import random
 
 class RouletteKeeper:
+    
     def __init__(self):
         self.name = "The Dealer"
         self.full_text = "Lets go gambling!" if random.randint(1, 256) == 1 else "Yo yo yo spin the hwheel and get a deal of.. yen.... ... Space.. yen..."

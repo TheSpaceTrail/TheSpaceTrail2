@@ -8,6 +8,8 @@ from . import parser
 from .events.roulette import roulette
 from .events.shop import shop
 from .events.hunting import hunting
+from .events.asteroid import huntinga
+from .events.pause import pause
 
 WIDTH, HEIGHT = 1280, 720
 BAR_H = 60
@@ -30,8 +32,14 @@ class Input:
         self.now = set()
 
         for e in pygame.event.get():
+
             if e.type == pygame.QUIT:
                 raise SystemExit
+
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
+                
+                pause()
+                
 
             if e.type == pygame.KEYDOWN:
                 self.now.add(e.key)
@@ -331,6 +339,7 @@ def run():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("quit")
                 pygame.quit()
 
             elif event.type == pygame.KEYDOWN:
@@ -344,14 +353,23 @@ def run():
         try:
             while True:
 
+                for event in pygame.event.get():
+
+                    if event.type == pygame.KEYDOWN:
+                        waiting_for_key = False
+
                 inp.update()
+
                 ev = gen.send(send)
                 send = None
 
                 if isinstance(ev, parser.Roulette):
 
                     result = roulette(screen, font_small, inp, parser.player)
-                
+
+                if isinstance(ev, parser.Asteroid):
+
+                    result = huntinga(screen, font_small, inp, parser.player)
                 
                 if isinstance(ev, parser.Hunting):
 
