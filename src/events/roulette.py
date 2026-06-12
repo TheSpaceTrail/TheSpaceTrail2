@@ -2,7 +2,7 @@ import pygame
 import random
 
 class RouletteKeeper:
-    
+
     def __init__(self):
         self.name = "The Dealer"
         self.full_text = "Lets go gambling!" if random.randint(1, 256) == 1 else "Yo yo yo spin the hwheel and get a deal of.. yen.... ... Space.. yen..."
@@ -71,7 +71,7 @@ class RouletteKeeper:
         self.set("...")
 
 
-def roulette(screen, font, inp, player):
+def roulette(screen, font, inp, database, player, bar, prompt):
 
     W, H = screen.get_size()
     TEXT = (220, 220, 220)
@@ -125,7 +125,7 @@ def roulette(screen, font, inp, player):
         keeper.set("You've lost everything. The house thanks you for your donation.")
 
         while True:
-            inp.update()
+            inp.update(screen, font, inp, database, player, bar, prompt)
             keeper.update()
 
             screen.fill((10, 10, 10))
@@ -155,7 +155,7 @@ def roulette(screen, font, inp, player):
 
         while True:
             dt = clock.tick(60) / 1000.0
-            inp.update()
+            inp.update(screen, font, inp, database, player, bar, prompt)
             keeper.update()
 
             if inp.pressed(pygame.K_ESCAPE):
@@ -209,7 +209,7 @@ def roulette(screen, font, inp, player):
         spin_speed = random.uniform(25, 35)
 
         while spin_speed > 0.15:
-            inp.update()
+            inp.update(screen, font, inp, database, player, bar, prompt)
             keeper.update()
 
             if inp.pressed(pygame.K_ESCAPE):
@@ -267,7 +267,7 @@ def roulette(screen, font, inp, player):
             continue
 
         while True:
-            inp.update()
+            inp.update(screen, font, inp, database, player, bar, prompt)
             keeper.update()
 
             if inp.pressed(pygame.K_ESCAPE):

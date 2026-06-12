@@ -2,7 +2,7 @@ import pygame
 import random
 import math
 
-def hunting(screen, font, inp, player):
+def hunting(screen, font, inp, database, player, bar, prompt):
 
     W, H = screen.get_size()
     TEXT = (220, 220, 220)
@@ -59,7 +59,7 @@ def hunting(screen, font, inp, player):
     
     while True:
         dt = clock.tick(60) / 1000.0
-        inp.update()
+        inp.update(screen, font, inp, database, player, bar, prompt)
 
         
         # EXIT → GAME OVER (same as bullets = 0)
@@ -75,7 +75,7 @@ def hunting(screen, font, inp, player):
         
         if game_over:
             while True:
-                inp.update()
+                inp.update(screen, font, inp, database, player, bar, prompt)
                 screen.fill((0, 0, 0))
 
                 msg = font.render("Hunt Complete", True, (80, 80, 80))

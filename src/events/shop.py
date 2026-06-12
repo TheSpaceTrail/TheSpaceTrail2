@@ -57,7 +57,7 @@ def shop(screen, font, inp, data, player, bar):
 
     while True:
 
-        inp.update()
+        inp.update(screen, font, inp, database, player, bar, prompt)
         state.slow_update()
 
         screen.fill((18, 18, 18))

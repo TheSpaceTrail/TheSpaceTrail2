@@ -48,46 +48,50 @@ def pause(screen, font, inp, database, player, bar, prompt):
     state = PauseState(database, player)
     i = 0
 
+    print("Du Bist Gut Genug")
+
     while True:
 
-        inp.update()
-        state.slow_update()
+        inp.update(screen, font, inp, database, player, bar, prompt)
+        # state.slow_update()
 
         screen.fill((18, 18, 18))
 
         pygame.draw.rect(screen, (30, 30, 30), (20, 20, WIDTH - 40, 160))
         pygame.draw.rect(screen, (80, 80, 80), (40, 40, 110, 110))
 
-        name = data.get("store_keeper_name", "Shopkeep")
-        screen.blit(font_small.render(name, True, TEXT), (170, 40))
+        bar(screen, font, "PAUSE MENU")
 
-        screen.blit(font_small.render(state.buffer, True, TEXT), (170, 80))
+        # name = data.get("store_keeper_name", "Shopkeep")
+        # screen.blit(font_small.render(name, True, TEXT), (170, 40))
 
-        y = 220
+        # screen.blit(font_small.render(state.buffer, True, TEXT), (170, 80))
 
-        for idx, it in enumerate(items):
+        # y = 220
 
-            prefix = "> " if idx == i else "  "
+        # for idx, it in enumerate(items):
 
-            screen.blit(
-                font_small.render(
-                    f"{prefix}{it['emoji']} {it['name']} ({it['price']})",
-                    True,
-                    TEXT
-                ),
-                (60, y)
-            )
+        #     prefix = "> " if idx == i else "  "
 
-            y += 35
+        #     screen.blit(
+        #         font_small.render(
+        #             f"{prefix}{it['emoji']} {it['name']} ({it['price']})",
+        #             True,
+        #             TEXT
+        #         ),
+        #         (60, y)
+        #     )
 
-        sx = WIDTH - 300
-        sy = 220
+        #     y += 35
 
-        for k, v in player.items():
-            screen.blit(font_small.render(f"{k}: {v}", True, TEXT), (sx, sy))
-            sy += 25
+        # sx = WIDTH - 300
+        # sy = 220
 
-        bar(screen, font_small, "[SPACE/ENTER] Buy | [ESC] Exit")
+        # for k, v in player.items():
+        #     screen.blit(font_small.render(f"{k}: {v}", True, TEXT), (sx, sy))
+        #     sy += 25
+
+        # bar(screen, font_small, "[SPACE/ENTER] Buy | [ESC] Exit")
         pygame.display.flip()
 
 

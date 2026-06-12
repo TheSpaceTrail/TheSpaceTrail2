@@ -27,7 +27,7 @@ class Input:
         self.now = set()
         self.held = set()
 
-    def update(self):
+    def update(self, screen, font, inp, database, player, bar, prompt):
         self.prev = self.now
         self.now = set()
 
@@ -38,7 +38,7 @@ class Input:
 
             if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
                 
-                pause()
+                pause(screen, font, inp, database, player, bar, prompt)
                 
 
             if e.type == pygame.KEYDOWN:
@@ -203,7 +203,7 @@ def render(screen, font, buf):
 
         y += line_h
 
-def prompt(screen, font, inp, question, choices, buf):
+def prompt(screen, font, inp, question, choices, buf, database, player, bar, prompt):
     small = pygame.font.SysFont("segoeuiemoji", 20)
 
     q_segments = parse_formatted(question)
@@ -211,7 +211,7 @@ def prompt(screen, font, inp, question, choices, buf):
 
     while True:
 
-        inp.update()
+        inp.update(screen, font, inp, database, player, bar, prompt)
         render(screen, font, buf)
 
         box = pygame.Rect(WIDTH//2 - 360, HEIGHT//2 - 180, 720, 360)
@@ -358,22 +358,22 @@ def run():
                     if event.type == pygame.KEYDOWN:
                         waiting_for_key = False
 
-                inp.update()
+                inp.update(screen, font, inp, parser.database, parser.player, bar, prompt)
 
                 ev = gen.send(send)
                 send = None
 
                 if isinstance(ev, parser.Roulette):
 
-                    result = roulette(screen, font_small, inp, parser.player)
+                    result = roulette(screen, font_small, inp, parser.database, parser.player, bar, prompt)
 
                 if isinstance(ev, parser.Asteroid):
 
-                    result = huntinga(screen, font_small, inp, parser.player)
+                    result = huntinga(screen, font, inp, parser.database, parser.player, bar, prompt)
                 
                 if isinstance(ev, parser.Hunting):
 
-                    result = hunting(screen, font_small, inp, parser.player)
+                    result = hunting(screen, font, inp, parser.database, parser.player, bar, prompt)
 
                 if isinstance(ev, parser.Print):
 
@@ -385,7 +385,7 @@ def run():
                     bar(screen, font_small, "[SPACE/ENTER] Continue")
                     pygame.display.flip()
                     while not inp.confirm():
-                        inp.update()
+                        inp.update(screen, font, inp, parser.database, parser.player, bar, prompt)
                         
                 elif isinstance(ev, parser.SlowPrint):
 
@@ -400,7 +400,7 @@ def run():
 
                     while i < len(raw):
 
-                        inp.update()
+                        inp.update(screen, font, inp, parser.database, parser.player, bar, prompt)
                         now = time.time()
 
                         # skip

@@ -2,7 +2,7 @@ import pygame
 import random
 import math
 
-def huntinga(screen, font, inp, player):
+def huntinga(screen, font, inp, database, player, bar, prompt):
 
     W, H = screen.get_size()
     TEXT = (220, 220, 220)
@@ -38,7 +38,7 @@ def huntinga(screen, font, inp, player):
     while True:
 
         dt = clock.tick(60) / 1000.0
-        inp.update()
+        inp.update(screen, font, inp, database, player, bar, prompt)
 
         elapsed = (pygame.time.get_ticks() - start_time) / 1000
         time_left = max(0, TIME_LIMIT - elapsed)
@@ -60,7 +60,7 @@ def huntinga(screen, font, inp, player):
 
             while True:
 
-                inp.update()
+                inp.update(screen, font, inp, database, player, bar, prompt)
 
                 screen.fill((0, 0, 0))
 

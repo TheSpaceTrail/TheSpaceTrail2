@@ -75,6 +75,10 @@ class Hunting(Event):
 class Asteroid(Event):
     pass
 
+@dataclass
+class Pause(Event):
+    pass
+
 
 def check_variable(test):
 
