@@ -2,6 +2,8 @@
 import rich.align
 import rich.text
 import rich.live
+import platform
+import sys
 
 # Built in libraries
 import time
@@ -18,7 +20,11 @@ class terminal:
     # Clears Screen
     def clear_screen(self):
 
-        os.system("cls")
+        # Cross-compatibility for clearing
+        if platform.system() == 'Darwin' or platform.system() == 'darwin':
+            os.system("clear")
+        else:
+            os.system("cls")
 
     # Centers if needed, then prints
     def print(self, text, center_horizontally=True, center_vertically=False, **args):
